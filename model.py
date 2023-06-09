@@ -23,10 +23,10 @@ class hand_detection:
         prev_classname = ""
 
         # Load the gesture recognizer model
-        model = load_model('mp_hand_gesture')
+        model = load_model("Gesture Recognition\mp_hand_gesture")
 
         # Load class names
-        f = open('gesture.names', 'r')
+        f = open('Gesture Recognition\gesture.names', 'r')
         classNames = f.read().split('\n')
         f.close()
         print(classNames)
@@ -93,6 +93,28 @@ class hand_detection:
         engine.say(self.string)
         engine.runAndWait()
 
+import io
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 
-hand_object = hand_detection("")
-hand_object.gesture_detect()
+
+
+print(op_str)
+class string_to_symbol:
+
+    def __init__(self, string):
+        self.string = string
+        stop_words = set(stopwords.words('english'))
+
+    def removing_stop_words(self):
+        words = self.string.split()
+
+        op_str = ""
+        for word in words:
+            if not word in stop_words:
+                op_str += word + " "
+        
+        return op_str 
+
+# hand_object = hand_detection("")
+# hand_object.gesture_detect()
