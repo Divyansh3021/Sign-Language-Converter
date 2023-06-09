@@ -99,22 +99,35 @@ from nltk.tokenize import word_tokenize
 
 
 
-print(op_str)
+# print(op_str)
 class string_to_symbol:
 
     def __init__(self, string):
         self.string = string
-        stop_words = set(stopwords.words('english'))
+        self.op_str = ""
+        self.stop_words = set(stopwords.words('english'))
 
     def removing_stop_words(self):
         words = self.string.split()
-
-        op_str = ""
         for word in words:
-            if not word in stop_words:
-                op_str += word + " "
+            if not word in self.stop_words:
+                self.op_str += word + " "
         
-        return op_str 
+        self.speak_words()
 
+    def speak_words(self):
+        if self.op_str == "":
+            print("Empty string!!")
+            engine.say("Empty string")
+    
+        else:
+            print(self.op_str)
+            engine.say(self.op_str)
+        engine.runAndWait()
+
+# obj2 = string_to_symbol("I strongly suggest that one reasds this book")
+
+# obj2.removing_stop_words()
 # hand_object = hand_detection("")
 # hand_object.gesture_detect()
+
