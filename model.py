@@ -130,4 +130,3 @@ class string_to_symbol:
 # obj2.removing_stop_words()
 # hand_object = hand_detection("")
 # hand_object.gesture_detect()
-
